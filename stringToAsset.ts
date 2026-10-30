@@ -1,5 +1,7 @@
 namespace images{
 
+    assets.image`the name`
+
     /**
      * Returns an image from a string
      */
@@ -42,6 +44,21 @@ namespace images{
     //% weight=1
     export function getAnimation(asset_name: string): Image[] {
         return helpers._getFactoryInstance("animation", asset_name)
+    }
+
+
+    /**
+     * Returns the string name of an image
+     */
+
+    export function getName(asset: Image, imageNames: string[]): string {
+        for (let img of imageNames) {
+            if (asset.equals(getImage(img))) {
+                return img
+            }
+        }
+        console.log("image not in list")
+        return ""
     }
 
 }
